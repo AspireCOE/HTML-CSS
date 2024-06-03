@@ -1,0 +1,32 @@
+<h1>Welcome to the Angular App</h1>
+
+<a [routerLink]="'shop'">Shop</a> &nbsp;
+<a [routerLink]="'product'">Products</a> &nbsp;
+<a [routerLink]="'student'">Student Details</a> &nbsp;
+<a [routerLink]="'templateform'">Login</a>  &nbsp;
+<a [routerLink]="'producrDetail'">ProductDetail</a> &nbsp;
+<a [routerLink]="'ReactiveForm'">ReactiveForm</a> &nbsp;
+<button type="submit" (click)="logout()">LogOut</button>
+<div>
+    <router-outlet></router-outlet>
+</div>
+
+
+
+<!-- {{5|cube}} <br>
+
+{{123456|currency:'INR'}} <br>
+{{123456|currency:'USD'}} <br>
+
+{{title|uppercase}} <br>
+{{title|lowercase}} <br>
+{{doj|date:'fullDate'}} <br>
+{{doj|date:'shortDate'}} <br>
+{{doj|date:'shortTime'}} <br>
+{{doj|date:'fullTime'}} <br>
+{{doj|date:'dd/MM/yyyy'}} <br> -->
+<!-- mm-> it has different meaning it is minute -->
+<!-- {{doj|date:'d/M/yy'}} <br>
+{{[1,2,3,4,5,6,7,8]|slice:3}} <br>
+{{[1,2,3,4,5,6,7,8]|slice:1:4}} <br>
+{{[1,2,3,4,5,6,7,8]|slice:3:-1}} -->

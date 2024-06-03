@@ -1,0 +1,30 @@
+<table>
+    <thead>
+        <tr>
+            <th>Produnt ID</th>
+            <th>Product Name</th>
+            <th>Cost</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(product of products; track product){
+            <tr>
+                @if (product.cost>1000){
+                <td>
+                    {{product.productId}}
+                </td>
+                <td>
+                    {{product.productName}}
+                </td>
+                <td>
+                    {{product.cost}}
+                </td>
+                <td>
+                    {{product.category}}
+                </td>
+            }
+            </tr>
+        }    
+    </tbody>
+</table>

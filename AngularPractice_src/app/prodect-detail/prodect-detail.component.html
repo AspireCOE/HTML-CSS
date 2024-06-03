@@ -1,0 +1,30 @@
+<p>prodect-detail works!</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Images</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (product of productdata ; track product){
+            <tr>
+                <td>{{product.title}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.rating}}</td>
+                <td>{{product.brand}}</td>
+                <td>{{product.category}}</td>
+                @for (image of product.images; track image){
+                    <td>
+                        <img src="image" />
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

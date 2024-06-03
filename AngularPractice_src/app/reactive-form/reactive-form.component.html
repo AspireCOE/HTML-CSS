@@ -1,0 +1,109 @@
+<style>
+    .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-container .form-control {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-container .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.form-container .error-message {
+    color: #d9534f;
+    margin-bottom: 10px;
+}
+
+.form-container .error-message small {
+    display: block;
+}
+
+.form-container .submit-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-container .submit-button:hover {
+    background-color: #0056b3;
+}
+
+</style>
+
+<p>reactive-form works!</p>
+<form [formGroup]="regdata" (ngSubmit)="register(regdata)" class="form-container">
+    <label>First Name: </label>
+    <input type="text" name="fname" formControlName="fname" class="form-control"> <br>
+    <div *ngIf="regdata.controls['fname'].touched && !regdata.controls['fname'].valid" class="error-message">
+        <span *ngIf="regdata.controls['fname'].hasError('required')">
+            <small>This is required!</small>
+        </span>
+        <span *ngIf="regdata.controls['fname'].hasError('minlength')">
+            <small>Requires minimum of 3 characters</small>
+        </span>
+    </div>
+
+    <label>Last Name: </label>
+    <input type="text" name="lname" formControlName="lname" class="form-control"> <br>
+    <div *ngIf="regdata.controls['lname'].touched && !regdata.controls['lname'].valid" class="error-message">
+        <span *ngIf="regdata.controls['lname'].hasError('required')">
+            <small>This is required!</small>
+        </span>
+    </div>
+
+    <label>Email Id: </label>
+    <input type="email" name="email" formControlName="email" class="form-control"> <br>
+    <div *ngIf="regdata.controls['email'].touched && !regdata.controls['email'].valid" class="error-message">
+        <span *ngIf="regdata.controls['email'].hasError('required')">
+            <small>This is required!</small>
+        </span>
+        <span *ngIf="regdata.controls['email'].hasError('email')">
+            <small>Provide proper email id</small>
+        </span>
+    </div>
+
+    <label>Mobile No.: </label>
+    <input type="tel" name="mobileNo" formControlName="mobileNo" class="form-control"> <br>
+    <div *ngIf="regdata.controls['mobileNo'].touched && !regdata.controls['mobileNo'].valid" class="error-message">
+        <span *ngIf="regdata.controls['mobileNo'].hasError('required')">
+            <small>This is required!</small>
+        </span>
+    </div>
+
+    <label>Password: </label>
+    <input type="password" name="password" formControlName="password" class="form-control"> <br>
+    <div *ngIf="regdata.controls['password'].touched && !regdata.controls['password'].valid" class="error-message">
+        <span *ngIf="regdata.controls['password'].hasError('required')">
+            <small>This is required!</small>
+        </span>
+        <span *ngIf="regdata.controls['password'].hasError('minlength')">
+            <small>Password should contain at least 8 characters</small>
+        </span>
+    </div>
+
+    <button type="submit" class="submit-button" disabled="regdata.controls.invalid">Submit</button>
+</form>
