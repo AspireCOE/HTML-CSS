@@ -1,0 +1,80 @@
+<style>
+    
+    .account-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1em;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    
+    .account-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    }
+
+   
+    .account-table th,
+    .account-table td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+    }
+
+    
+    .account-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+    }
+
+    
+    .account-table tbody tr:hover {
+    background-color: #f1f1f1;
+    }
+
+   
+    .account-table th {
+    text-align: left;
+    }
+
+    .account-table td {
+    text-align: left;
+    }
+
+</style>
+
+<p>acc-details works!</p>
+
+<table class="account-table">
+    <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Account Holder Name</th>
+            <th>Account Type</th>
+            <th>Date of Creation</th>
+            <th>Balance Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (detail of accDetails ; track detail){
+            <tr>
+                <td>{{detail.accountNumber}}</td>
+                <td>{{detail.accountHolderName}}</td>
+                <td>{{detail.accountType}}</td>
+                <td>{{detail.accountCreationDate|date:'shortDate'}}</td>
+                <td>{{detail.balanceAmount|currency:'INR'}}</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
+
+

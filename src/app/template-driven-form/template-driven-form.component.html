@@ -1,0 +1,37 @@
+<p>Registration Form</p>
+
+<div>
+    
+<form #regdata="ngForm"  (ngSubmit)="register(regdata)">
+    <label >First Name: </label>
+    <input type="text"  name="fname" ngModel #fname="ngModel" minlength="3" required><br>
+    <div *ngIf="!fname.valid && (fname.touched  || fname.dirty)">
+        <span *ngIf="fname.errors?.['required']">This is required</span>
+        <span *ngIf="fname.errors?.['minlength']">Minimum 3 chaacters needed</span>
+    </div>
+    <label >Middle Name: </label>
+    <input type="text" name="mname" ngModel #mname="ngModel" required><br>
+
+    <label >Last Name: </label>
+    <input type="text" name="lname" ngModel #lname="ngModel" required><br>
+    <div *ngIf="!lname.valid && (lname.touched  || lname.dirty)">
+        <span *ngIf="lname.errors?.['required']">This is required</span>
+    </div>
+
+    <label >Email id: </label>
+    <input type="email" name="email" ngModel #email="ngModel" required><br>
+    <div *ngIf="!email.valid && (email.touched  || email.dirty)">
+        <span *ngIf="email.errors?.['required']">This is required</span>
+    </div>
+
+    <label >Password: </label>
+    <input type="password" name="password" ngModel #password="ngModel" required minlength="8"><br>
+    <div *ngIf="!password.valid && (password.touched  || password.dirty)">
+        <span *ngIf="password.errors?.['required']">This is required</span>
+        <span *ngIf="password.errors?.['minlength']">Minimum 8 chaacters needed</span>
+    </div>
+
+    <button type="submit" [disabled]="regdata.invalid">Register</button>
+
+</form>
+</div>
