@@ -1,0 +1,62 @@
+<style>
+   
+    .Navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color:#336699;
+    }
+
+    .Navigation a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+    }
+
+    .Navigation a:hover {
+    text-decoration: underline;
+    }
+    
+    .app-container {
+    background-color: aliceblue;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    }
+
+
+    body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    }
+
+    .button{
+        background-color: #003366;
+        color: wheat;
+        border-radius: 8px;
+    }
+
+</style>
+
+<h1 style="background-color:#003366;">Welcome to the Account Details Application</h1>
+
+<div class="Navigation">
+    <a [routerLink]="'home'">Home</a> &nbsp;
+    <a [routerLink]="'login'">Login</a> &nbsp;
+    <a [routerLink]="'acc-details'">Account Details</a> &nbsp;
+    <a [routerLink]="'balance'">Balance Details</a>  &nbsp;
+    <a [routerLink]="'type'">Account Types</a>  
+    <a [routerLink]="'product'">Product Details</a>
+    <a [routerLink]="'register'">Form</a>
+    <button class="button" type="submit" (click)="logout()">Log out</button>
+</div>
+<hr>
+
+
+<div class="app-container">
+    <router-outlet></router-outlet>
+</div>
+
+
